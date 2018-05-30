@@ -1,0 +1,5 @@
+archivesBaseName = 'sc-common'
+
+dependencies {
+    compile libs.'eureka-client'
+}

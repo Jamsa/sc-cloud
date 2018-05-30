@@ -1,0 +1,5 @@
+rootProject.name = 'sc-cloud'
+
+include 'registry','gateway'
+include 'demo0:api','demo0:service'
+include 'demo1:api','demo1:service'

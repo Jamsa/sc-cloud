@@ -1,0 +1,10 @@
+dependencies {
+    compile libs.'eureka-server'
+}
+
+jar {
+    manifest {
+        attributes "Manifest-Version": 1.0,
+                'Main-Class': 'com.github.jamsa.sc.registry.Application'
+    }
+}

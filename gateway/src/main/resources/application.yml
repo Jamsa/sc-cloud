@@ -1,0 +1,15 @@
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9001/eureka/
+spring:
+  application:
+    name: sc-gateway
+server:
+  port: 9000
+zuul:
+  routes:
+    demo0: /demo0/**
+    demo1: /demo1/**

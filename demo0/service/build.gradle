@@ -1,0 +1,11 @@
+dependencies {
+    compile project(':demo0:api')
+    compile libs.'eureka-client'
+}
+
+jar {
+    manifest {
+        attributes "Manifest-Version": 1.0,
+                'Main-Class': 'com.github.jamsa.demo0.controller.Demo0Controller'
+    }
+}

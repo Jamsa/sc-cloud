@@ -11,5 +11,5 @@ server:
   port: 9000
 zuul:
   routes:
-    demo0: /demo0/**
-    demo1: /demo1/**
+    demo0: /provider/**
+    demo1: /consumer/**

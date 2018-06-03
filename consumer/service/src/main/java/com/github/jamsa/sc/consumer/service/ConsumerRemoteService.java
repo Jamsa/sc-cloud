@@ -1,7 +1,6 @@
 package com.github.jamsa.sc.consumer.service;
 
 import com.github.jamsa.sc.consumer.service.impl.FeignFallbackConsumerRemoteService;
-import com.github.jamsa.sc.provider.api.client.ProviderRemoteService;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

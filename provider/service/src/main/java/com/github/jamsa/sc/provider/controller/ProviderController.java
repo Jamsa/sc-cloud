@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @EnableEurekaClient
 @RestController
 @ComponentScan(basePackages={"com.github.jamsa.sc.provider"})
-@RequestMapping("/provider")
+//@RequestMapping("/provider")
 public class ProviderController implements ProviderRemoteService {
 
     @Override

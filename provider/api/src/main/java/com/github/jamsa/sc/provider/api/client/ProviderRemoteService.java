@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RequestParam;
  * Created by zhujie on 2018/5/29.
  */
 public interface ProviderRemoteService {
-    @RequestMapping(value="/hello",method= RequestMethod.GET)
+    @RequestMapping(value="/provider/hello",method= RequestMethod.GET)
     String hello(@RequestParam("name") String name);//这个name对服务消费方是必须的，否则调用时会报错
 }

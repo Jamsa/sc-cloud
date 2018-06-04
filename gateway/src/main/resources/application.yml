@@ -11,5 +11,10 @@ server:
   port: 9000
 zuul:
   routes:
-    demo0: /provider/**
-    demo1: /consumer/**
+    sc-consumer:
+      path: /api/**
+      serviceId: sc-consumer
+management:
+  security:
+    enabled: false
+

@@ -2,6 +2,7 @@ package com.github.jamsa.sc.consumer.controller;
 
 import com.github.jamsa.sc.consumer.service.ConsumerRemoteApiService;
 import com.github.jamsa.sc.consumer.service.ConsumerRemoteService;
+import com.netflix.discovery.converters.Auto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,6 +12,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 /**
  * 服务消费方
@@ -30,7 +32,7 @@ public class ConsumerController{
 
     @RequestMapping("/hello")
     public String hello(@RequestParam String name) {
-        return "Hello From Remote:"+consumerRemoteService.hello(name);
+        return "Hello From Remote: "+consumerRemoteService.hello(name);
     }
 
     @Autowired
@@ -38,8 +40,17 @@ public class ConsumerController{
 
     @RequestMapping("/helloByApi")
     public String helloByApi(@RequestParam String name) {
-        return "Hello From Remote By API:"+consumerRemoteApiService.hello(name);
+        return "Hello From Remote By API: "+consumerRemoteApiService.hello(name);
     }
+
+    @Autowired
+    private RestTemplate restTemplate;
+
+    @RequestMapping("/helloByRest")
+    public String helloByRest(@RequestParam String name) {
+        return "Hello From Remote By RestTemplate: "+restTemplate.getForObject("http://SC-PROVIDER/provider/hello?name="+name,String.class);
+    }
+
 
 
     public static void main(String[] args) {

@@ -11,7 +11,9 @@ ext.libs = [
         "eureka-server":"org.springframework.cloud:spring-cloud-starter-netflix-eureka-server",
         "eureka-client":"org.springframework.cloud:spring-cloud-starter-netflix-eureka-client",
         "zuul":"org.springframework.cloud:spring-cloud-starter-netflix-zuul",
-        "feign":"org.springframework.cloud:spring-cloud-starter-feign"
+        "feign":"org.springframework.cloud:spring-cloud-starter-feign",
+        "config-server":"org.springframework.cloud:spring-cloud-config-server",
+        "config-client":"org.springframework.cloud:spring-cloud-config-client"
 ]
 //只起分类作用的目录
 ext.excludeFolds = ["provider","consumer"]

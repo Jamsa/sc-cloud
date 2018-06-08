@@ -1,0 +1,26 @@
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9001/eureka/
+spring:
+  application:
+    name: sc-config
+  profiles:
+    active: native #使用本地目录读取配置文件，而不是从版本仓库
+  cloud:
+    config:
+      server:
+        native:
+          searchLocations:classpath:/config
+        #git:
+        #  uri: http://xxx.git
+        #  searchPaths: config #配置文件放在根目录时不需要配置
+server:
+  port: 9002
+management:
+  security:
+    enabled: false
+
+

@@ -1,6 +1,9 @@
 dependencies {
     compile project(':provider:api')
     //compile libs.'eureka-client' //Eureka客户端
+    compile libs.'config-client' //Config客户端
+    compile libs.'spring-retry' //重试机制
+    compile libs.'spring-boot-aop'
 }
 
 jar {

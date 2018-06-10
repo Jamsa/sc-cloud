@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: sc-provider
+  cloud:
+    config:
+      failFast: true #快速失败
+      discovery:
+        serviceId: sc-config #配置服务中心的应用名称
+        enabled: true
+      enabled: true
+      profile: dev
+      label: master
+
+server:
+  port: 9010
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9001/eureka/
+
+#取消权限验证
+management:
+  security:
+    enabled: false
+
+
+# 启用/restart端点重新启动应用程序上下文。
+endpoints:
+  restart:
+    enabled: true

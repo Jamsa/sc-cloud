@@ -10,7 +10,14 @@ spring:
       enabled: true
       profile: dev
       label: master
-
+    bus:
+      trace:
+        enabled: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 server:
   port: 9010
 eureka:

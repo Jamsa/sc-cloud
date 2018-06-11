@@ -1,6 +1,8 @@
 package com.github.jamsa.sc.provider.controller;
 
 import com.github.jamsa.sc.provider.api.client.ProviderRemoteService;
+import com.github.jamsa.sc.provider.service.impl.Sender;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -37,6 +39,14 @@ public class ProviderController implements ProviderRemoteService {
     @RequestMapping("/provider/config")
     public String config(){
         return defaultName;
+    }
+
+    @Autowired
+    private Sender sender;
+
+    @RequestMapping("/provider/send")
+    public void send(){
+        this.sender.send();
     }
 
 }

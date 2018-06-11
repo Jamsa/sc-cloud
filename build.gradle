@@ -16,7 +16,8 @@ ext.libs = [
         "config-client":"org.springframework.cloud:spring-cloud-config-client",
         "spring-retry":"org.springframework.retry:spring-retry",
         "spring-boot-actuator":"org.springframework.boot:spring-boot-starter-actuator",
-        "spring-boot-aop":"org.springframework.boot:spring-boot-starter-aop"
+        "spring-boot-aop":"org.springframework.boot:spring-boot-starter-aop",
+        "bus":"org.springframework.cloud:spring-cloud-starter-bus-amqp"
 ]
 //只起分类作用的目录
 ext.excludeFolds = ["provider","consumer"]
@@ -77,6 +78,7 @@ subprojects {
             compile libs.'feign'
             compile libs.'eureka-client'
             compile libs.'spring-boot-actuator'
+            compile libs.'bus'
         }
     }
 

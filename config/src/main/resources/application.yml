@@ -13,10 +13,19 @@ spring:
     config:
       server:
         native:
-          searchLocations:classpath:/config
+          searchLocations: file:/Users/zhujie/Documents/devel/Java/sc-cloud/support/config #需要从sc-cloud目录下运行程序
+          #searchLocations:classpath:/config
         #git:
         #  uri: http://xxx.git
         #  searchPaths: config #配置文件放在根目录时不需要配置
+    bus:
+      trace:
+        enabled: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 server:
   port: 9002
 management:

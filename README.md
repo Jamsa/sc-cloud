@@ -10,3 +10,4 @@
  - [Zuul 服务网关](http://jamsa.github.io/spring-cloud-shang-shou-5-fu-wu-wang-guan.html)
  - [Ribbon 负载均衡](http://jamsa.github.io/spring-cloud-shang-shou-6-fu-zai-jun-heng.html)
  - [Config 配置中心](http://jamsa.github.io/spring-cloud-shang-shou-7-pei-zhi-zhong-xin.html)
+ - [Bus 消息总线](http://jamsa.github.io/spring-cloud-shang-shou-8-xiao-xi-zong-xian.html)

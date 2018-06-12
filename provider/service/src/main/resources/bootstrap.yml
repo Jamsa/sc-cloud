@@ -13,6 +13,12 @@ spring:
     bus:
       trace:
         enabled: true
+  zipkin:
+    rabbitmq:
+      queue: zipkin
+  sleuth:
+    sampler:
+      percentage: 1.0
   rabbitmq:
     host: localhost
     port: 5672
@@ -37,3 +43,9 @@ management:
 endpoints:
   restart:
     enabled: true
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web.servlet.DispatcherServlet: DEBUG
+    org.springframework.cloud.sleuth: DEBUG

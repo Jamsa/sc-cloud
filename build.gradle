@@ -17,7 +17,16 @@ ext.libs = [
         "spring-retry":"org.springframework.retry:spring-retry",
         "spring-boot-actuator":"org.springframework.boot:spring-boot-starter-actuator",
         "spring-boot-aop":"org.springframework.boot:spring-boot-starter-aop",
-        "bus":"org.springframework.cloud:spring-cloud-starter-bus-amqp"
+        "bus":"org.springframework.cloud:spring-cloud-starter-bus-amqp",
+
+        //zipkin服务端
+        "zipkin-server":"io.zipkin.java:zipkin-server",
+        "zipkin-server-ui":"io.zipkin.java:zipkin-autoconfigure-ui",
+        "zipkin-server-rabbit":"io.zipkin.java:zipkin-autoconfigure-collector-rabbitmq:2.3.1",
+
+        //zipkin客户端
+        "zipkin-client":"org.springframework.cloud:spring-cloud-starter-zipkin",
+        "spring-rabbit":"org.springframework.amqp:spring-rabbit"
 ]
 //只起分类作用的目录
 ext.excludeFolds = ["provider","consumer"]
@@ -79,6 +88,14 @@ subprojects {
             compile libs.'eureka-client'
             compile libs.'spring-boot-actuator'
             compile libs.'bus'
+        }
+    }
+
+    // service 和 gateway 工程的依赖，zipkin 客户端
+    if(name=='service'||name=='gateway') {
+        dependencies {
+            compile libs.'zipkin-client'
+            compile libs.'spring-rabbit'
         }
     }
 

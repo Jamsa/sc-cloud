@@ -7,6 +7,12 @@ eureka:
 spring:
   application:
     name: sc-gateway
+  zipkin:
+    rabbitmq:
+      queue: zipkin
+  sleuth:
+    sampler:
+      percentage: 1.0
 server:
   port: 9000
 zuul:
@@ -17,4 +23,10 @@ zuul:
 management:
   security:
     enabled: false
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web.servlet.DispatcherServlet: DEBUG
+    org.springframework.cloud.sleuth: DEBUG
 

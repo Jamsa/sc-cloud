@@ -5,6 +5,12 @@ spring:
     bus:
       trace:
         enabled: true
+  zipkin:
+    rabbitmq:
+      queue: zipkin
+  sleuth:
+    sampler:
+      percentage: 1.0
   rabbitmq:
     host: localhost
     port: 5672
@@ -18,3 +24,9 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:9001/eureka/
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web.servlet.DispatcherServlet: DEBUG
+    org.springframework.cloud.sleuth: DEBUG

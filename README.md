@@ -11,3 +11,4 @@
  - [Ribbon 负载均衡](http://jamsa.github.io/spring-cloud-shang-shou-6-fu-zai-jun-heng.html)
  - [Config 配置中心](http://jamsa.github.io/spring-cloud-shang-shou-7-pei-zhi-zhong-xin.html)
  - [Bus 消息总线](http://jamsa.github.io/spring-cloud-shang-shou-8-xiao-xi-zong-xian.html)
+ - [Sleuth 服务监控](http://jamsa.github.io/spring-cloud-shang-shou-9-fu-wu-jian-kong.html)

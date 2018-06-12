@@ -1,0 +1,13 @@
+dependencies {
+    //ZipKin服务
+    compile libs.'zipkin-server'
+    compile libs.'zipkin-server-ui'
+    compile libs.'zipkin-server-rabbit'
+}
+
+jar {
+    manifest {
+        attributes "Manifest-Version": 1.0,
+                'Main-Class': 'com.github.jamsa.sc.zipkin.Application'
+    }
+}

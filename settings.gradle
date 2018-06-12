@@ -1,5 +1,5 @@
 rootProject.name = 'sc-cloud'
 
-include 'registry','gateway','config'
+include 'registry','gateway','config','zipkin'
 include 'provider:api','provider:service'
 include 'consumer:api','consumer:service'

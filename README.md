@@ -12,3 +12,4 @@
  - [Config 配置中心](http://jamsa.github.io/spring-cloud-shang-shou-7-pei-zhi-zhong-xin.html)
  - [Bus 消息总线](http://jamsa.github.io/spring-cloud-shang-shou-8-xiao-xi-zong-xian.html)
  - [Sleuth 服务监控](http://jamsa.github.io/spring-cloud-shang-shou-9-fu-wu-jian-kong.html)
+ - [ELK 日志收集](http://jamsa.github.io/spring-cloud-shang-shou-10-ri-zhi-shou-ji.html)

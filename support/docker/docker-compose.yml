@@ -1,0 +1,18 @@
+elk:
+  image: sebp/elk
+  ports:
+    - "5601:5601"
+    - "9200:9200"
+    - "5044:5044"
+    - "4560:4560"
+  volumes:
+    - ./elk-30-output.conf:/etc/logstash/conf.d/30-output.conf
+
+rabbitmq:
+  image: rabbitmq:3-management
+  ports:
+    - "15672:15672"
+    - "5672:5672"
+    - "5673:5673"
+    - "4369:4369"
+    - "25672:25672"

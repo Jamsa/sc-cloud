@@ -3,6 +3,7 @@ dependencies {
     compile libs.'zipkin-server'
     compile libs.'zipkin-server-ui'
     compile libs.'zipkin-server-rabbit'
+    compile libs.'zipkin-server-elasticsearch'
 }
 
 jar {

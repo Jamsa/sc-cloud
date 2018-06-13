@@ -23,10 +23,14 @@ ext.libs = [
         "zipkin-server":"io.zipkin.java:zipkin-server",
         "zipkin-server-ui":"io.zipkin.java:zipkin-autoconfigure-ui",
         "zipkin-server-rabbit":"io.zipkin.java:zipkin-autoconfigure-collector-rabbitmq:2.3.1",
+        "zipkin-server-elasticsearch":"io.zipkin.java:zipkin-autoconfigure-storage-elasticsearch-http:2.3.1",
 
         //zipkin客户端
         "zipkin-client":"org.springframework.cloud:spring-cloud-starter-zipkin",
-        "spring-rabbit":"org.springframework.amqp:spring-rabbit"
+        "spring-rabbit":"org.springframework.amqp:spring-rabbit",
+
+        //logstash
+        "logstash":"net.logstash.logback:logstash-logback-encoder:4.6"
 ]
 //只起分类作用的目录
 ext.excludeFolds = ["provider","consumer"]
@@ -96,6 +100,7 @@ subprojects {
         dependencies {
             compile libs.'zipkin-client'
             compile libs.'spring-rabbit'
+            compile libs.'logstash'
         }
     }
 

@@ -14,6 +14,14 @@ zipkin:
       password: guest
       username: guest
       queue: zipkin
+  storage:
+    type: elasticsearch
+    elasticsearch:
+      cluster: elasticsearch
+      hosts: http://localhost:9200
+      index: zipkin
+      index-shards: 5
+      index-replicas: 1
 server:
   port: 9003
 eureka:

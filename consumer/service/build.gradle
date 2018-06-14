@@ -1,6 +1,7 @@
 dependencies {
     compile project(':provider:api')
     compile libs.'eureka-client'  //Eureka客户端
+    compile libs.'config-client' //Config客户端
 }
 
 jar {

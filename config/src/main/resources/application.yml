@@ -1,14 +1,8 @@
-eureka:
-  instance:
-    hostname: localhost
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:9001/eureka/
 spring:
+  profiles:
+    active: dev,native #使用本地目录读取配置文件，而不是从版本仓库
   application:
     name: sc-config
-  profiles:
-    active: native #使用本地目录读取配置文件，而不是从版本仓库
   cloud:
     config:
       server:
@@ -18,18 +12,41 @@ spring:
         #git:
         #  uri: http://xxx.git
         #  searchPaths: config #配置文件放在根目录时不需要配置
-    bus:
-      trace:
-        enabled: true
-  rabbitmq:
-    host: localhost
-    port: 5672
-    username: guest
-    password: guest
 server:
   port: 9002
+
+#取消权限验证
 management:
   security:
     enabled: false
 
+# 启用/restart端点重新启动应用程序上下文。
+endpoints:
+  restart:
+    enabled: true
 
+logging:
+  level:
+    root: INFO
+    org.springframework.web.servlet.DispatcherServlet: DEBUG
+    org.springframework.cloud.sleuth: DEBUG
+
+---
+# dev profile
+spring:
+  profiles: dev
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9001/eureka/
+
+---
+# docker profile
+spring:
+  profiles: docker
+
+eureka:
+  client:
+    serviceUrl:
+     defaultZone: http://sc-config-0.eureka.default.svc.cluster.local:9001/eureka/,http://sc-config-1.eureka.default.svc.cluster.local:9001/eureka/

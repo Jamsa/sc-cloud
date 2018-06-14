@@ -2,7 +2,7 @@ spring:
   profiles:
     active: dev
   application:
-    name: sc-provider
+    name: sc-gateway
   cloud:
     config:
       failFast: true #快速失败
@@ -10,7 +10,7 @@ spring:
         serviceId: sc-config #配置服务中心的应用名称
         enabled: true
 server:
-  port: 9010
+  port: 9000
 
 ---
 # dev profile
@@ -31,3 +31,4 @@ eureka:
   client:
     serviceUrl:
      defaultZone: http://sc-config-0.eureka.default.svc.cluster.local:9001/eureka/,http://sc-config-1.eureka.default.svc.cluster.local:9001/eureka/
+

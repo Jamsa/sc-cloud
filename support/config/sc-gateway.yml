@@ -1,0 +1,5 @@
+zuul:
+  routes:
+    sc-consumer:
+      path: /api/**
+      serviceId: sc-consumer

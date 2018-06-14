@@ -1,6 +1,7 @@
 dependencies {
     compile libs.'zuul'
     compile libs.'eureka-client'
+    compile libs.'config-client' //Config客户端
 }
 
 jar {

@@ -1,0 +1,39 @@
+zipkin:
+  collector:
+    rabbitmq:
+      addresses: localhost:5672
+      password: guest
+      username: guest
+      queue: zipkin
+  storage:
+    type: elasticsearch
+    elasticsearch:
+      cluster: elasticsearch
+      index: zipkin
+      index-shards: 5
+      index-replicas: 1
+
+---
+# dev profile
+spring:
+  profiles: dev
+
+zipkin:
+  collector:
+    rabbitmq:
+      addresses: localhost:5672
+  storage:
+    elasticsearch:
+      hosts: http://localhost:9200
+---
+# docker profile
+spring:
+  profiles: docker
+
+zipkin:
+  collector:
+    rabbitmq:
+      addresses: rabbitmq:5672
+  storage:
+    elasticsearch:
+      hosts: http://elk:9200

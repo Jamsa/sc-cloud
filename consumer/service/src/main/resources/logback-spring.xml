@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
     <appender name="LOGSTASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+
+        <springProfile name="dev">
         <destination>localhost:4560</destination>
+        </springProfile>
+
+        <springProfile name="docker">
+            <destination>elk:4560</destination>
+        </springProfile>
+
         <encoder charset="UTF-8" class="net.logstash.logback.encoder.LogstashEncoder"/>
     </appender>
 

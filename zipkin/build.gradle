@@ -1,4 +1,6 @@
 dependencies {
+    compile libs.'eureka-client'
+    compile libs.'config-client' //Config客户端
     //ZipKin服务
     compile libs.'zipkin-server'
     compile libs.'zipkin-server-ui'

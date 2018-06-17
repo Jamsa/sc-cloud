@@ -1,0 +1,50 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: rabbitmq
+spec:
+  type: NodePort
+  ports:
+  - port: 5672
+    name: rabbitmq1
+    targetPort: 5672
+  - port: 5673
+    name: rabbitmq2
+    targetPort: 5673
+  - port: 4369
+    name: rabbitmq3
+    targetPort: 4369
+  - port: 25672
+    name: rabbitmq4
+    targetPort: 25672
+  - port: 15672
+    name: rabbitmq5
+    targetPort: 15672
+    nodePort: 32001
+  selector:
+    name: rabbitmq
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rabbitmq
+spec:
+  selector:
+    matchLabels:
+      app: rabbitmq
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: rabbitmq
+    spec:
+      containers:
+      - name: rabbitmq
+        image: rabbitmq:3-management
+        ports:
+        - containerPort: 5672
+        - containerPort: 15672
+        - containerPort: 5673
+        - containerPort: 4369
+        - containerPort: 25672

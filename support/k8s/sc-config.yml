@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sc-config
+spec:
+  selector:
+    matchLabels:
+      app: sc-config
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sc-config
+    spec:
+      containers:
+      - name: sc-config
+        imagePullPolicy: Never
+        image: jamsa/sc-config
+        ports:
+        - containerPort: 9002
+        volumeMounts:
+        - name: sc-config-storage
+          mountPath: /Users/zhujie/Documents/devel/Java/sc-cloud/support/config
+      volumes:
+      - name: sc-config-storage
+        hostPath:
+          path: /Users/zhujie/Documents/devel/Java/sc-cloud/support/config

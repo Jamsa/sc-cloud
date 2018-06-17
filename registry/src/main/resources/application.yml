@@ -31,22 +31,35 @@ logging:
 # dev profile
 spring:
   profiles: dev
-
+  rabbitmq:
+      host: localhost
+      port: 5672
+      username: guest
+      password: guest
 eureka:
   instance:
-    hostname: localhost
+    appname: ${spring.application.name}
+    #hostname: localhost
   client:
     serviceUrl:
-     defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://localhost:${server.port}/eureka/
 
 ---
 # docker profile
 spring:
   profiles: docker
-
+  rabbitmq:
+      host: rabbitmq
+      port: 5672
+      username: guest
+      password: guest
 eureka:
   instance:
-    hostname: ${spring.application.name}
+    appname: ${spring.application.name}
+    #客户端使用ip地址注册，在k8s中才能正常工作
+    perferIpAddress: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    #hostname: ${spring.application.name}
   client:
     serviceUrl:
-     defaultZone: http://${eureka.instance.hostname}-0.eureka.default.svc.cluster.local:${server.port}/eureka/,http://${eureka.instance.hostname}-1.eureka.default.svc.cluster.local:${server.port}/eureka/
+      defaultZone: http://sc-registry-0.sc-registry.default.svc.cluster.local:9001/eureka/,http://sc-registry-1.sc-registry.default.svc.cluster.local:9001/eureka/

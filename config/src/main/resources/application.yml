@@ -36,6 +36,12 @@ logging:
 spring:
   profiles: dev
 
+  rabbitmq:
+      host: localhost
+      port: 5672
+      username: guest
+      password: guest
+
 eureka:
   client:
     serviceUrl:
@@ -46,7 +52,14 @@ eureka:
 spring:
   profiles: docker
 
+  rabbitmq:
+      host: rabbitmq
+      port: 5672
+      username: guest
+      password: guest
+
 eureka:
   client:
     serviceUrl:
-     defaultZone: http://sc-config-0.eureka.default.svc.cluster.local:9001/eureka/,http://sc-config-1.eureka.default.svc.cluster.local:9001/eureka/
+     defaultZone: http://sc-registry-0.sc-registry.default.svc.cluster.local:9001/eureka/,http://sc-registry-1.sc-registry.default.svc.cluster.local:9001/eureka/
+

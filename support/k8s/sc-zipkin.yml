@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sc-zipkin
+spec:
+  selector:
+    matchLabels:
+      app: sc-zipkin
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sc-zipkin
+    spec:
+      containers:
+      - name: sc-zipkin
+        imagePullPolicy: Never
+        image: jamsa/sc-zipkin
+        ports:
+        - containerPort: 9003

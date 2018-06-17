@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sc-consumer
+spec:
+  selector:
+    matchLabels:
+      app: sc-consumer
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sc-consumer
+    spec:
+      containers:
+      - name: sc-consumer
+        imagePullPolicy: Never
+        image: jamsa/sc-consumer
+        ports:
+        - containerPort: 9011

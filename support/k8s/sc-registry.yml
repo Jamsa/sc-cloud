@@ -1,0 +1,34 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sc-registry
+  labels:
+    app: sc-registry
+spec:
+  ports:
+  - port: 9001
+    name: sc-registry
+  clusterIP: None
+  selector:
+    app: sc-registry
+
+---
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: sc-registry
+spec:
+  serviceName: sc-registry
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: sc-registry
+    spec:
+      containers:
+      - name: sc-registry
+        imagePullPolicy: Never #强制使用本地镜像，否则Minikube会从仓库拉取镜像
+        image: jamsa/sc-registry
+        ports:
+        - containerPort: 9001
+          name: client

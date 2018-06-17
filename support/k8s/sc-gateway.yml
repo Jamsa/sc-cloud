@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sc-gateway
+spec:
+  type: NodePort
+  ports:
+  - port: 9000
+    nodePort: 32000
+  selector:
+    name: sc-gateway
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sc-gateway
+spec:
+  selector:
+    matchLabels:
+      app: sc-gateway
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: sc-gateway
+    spec:
+      containers:
+      - name: sc-gateway
+        imagePullPolicy: Never
+        image: jamsa/sc-gateway
+        ports:
+        - containerPort: 9000

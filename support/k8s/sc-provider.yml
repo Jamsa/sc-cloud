@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sc-provider
+spec:
+  selector:
+    matchLabels:
+      app: sc-provider
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sc-provider
+    spec:
+      containers:
+      - name: sc-provider
+        imagePullPolicy: Never
+        image: jamsa/sc-provider
+        ports:
+        - containerPort: 9010

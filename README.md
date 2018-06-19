@@ -14,3 +14,5 @@
  - [Sleuth 服务监控](http://jamsa.github.io/spring-cloud-shang-shou-9-fu-wu-jian-kong.html)
  - [ELK 日志收集](http://jamsa.github.io/spring-cloud-shang-shou-10-ri-zhi-shou-ji.html)
  - [Config 配置优化](http://jamsa.github.io/spring-cloud-shang-shou-11-pei-zhi-you-hua.html)
+ - [Kubernetes 容器化](http://jamsa.github.io/spring-cloud-shang-shou-12-rong-qi-hua.html) 
+ 
